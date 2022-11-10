@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ImageZoom from 'https://cdn.skypack.dev/react-image-zooom@~1.0.1';
 
 const ServiceCard = ({ service }) => {
     const { _id, img, price, title, description } = service;
@@ -15,7 +14,7 @@ const ServiceCard = ({ service }) => {
                         :
                         <p>{description}</p>
                 }
-                {/* <p>{description}</p> */}
+                
                 <p className='text-2xl font-semibold'>Price: ${price}</p>
                 <div className="card-actions justify-end mt-4">
                     <Link to={`/checkout/${_id}`}>
