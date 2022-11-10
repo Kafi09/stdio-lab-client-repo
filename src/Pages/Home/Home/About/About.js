@@ -11,7 +11,7 @@ const About = () => {
                 </div>
                 <div className='w-1/2'>
                     <h1 className="text-4xl font-bold my-6">Capturing these stories for others gives me an incredible feeling of satisfaction.</h1>
-                    
+                    <img src={img6} className="max-w-sm rounded-lg shadow-2xl ml-10" alt="" />
                 </div>
             </div>
         </div>
