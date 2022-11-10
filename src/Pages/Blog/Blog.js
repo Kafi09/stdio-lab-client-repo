@@ -35,7 +35,9 @@ const Blog = () => {
                 <p className='text-xl'>Ans: JavaScript is a simple programming language that can be used with any browser that has the JavaScript Engine installed. Node. js, on the other hand, is an interpreter or execution environment for the JavaScript programming language.
                 </p> <br /> <br />
 
-                 
+                <h1 className='text-2xl'>Q4:How does NodeJS handle multiple requests at the same time?</h1>
+                <p className='text-xl'>Ans: NodeJS handle multiple client requests. NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.
+                </p> 
 
 
             </section>
