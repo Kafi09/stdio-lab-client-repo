@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ImageZoom from 'https://cdn.skypack.dev/react-image-zooom@~1.0.1';
 
 const ServiceCard = ({ service }) => {
     const { _id, img, price, title, description } = service;
@@ -10,7 +11,7 @@ const ServiceCard = ({ service }) => {
                 <h2 className="card-title">{title}</h2>
                 {
                     description.length > 100 ?
-                        <p>{description.slice(0, 100) + '...'} <Link to='/servicedatadetails'>Read More</Link> </p>
+                        <p>{description.slice(0, 100) + '...'} <Link to='/servicedatadetails'><button className="btn btn-xs btn-accent">Details</button></Link> </p>
                         :
                         <p>{description}</p>
                 }
