@@ -8,7 +8,7 @@ const About = () => {
             <div className="hero-content flex-col lg:flex-row">
                 <div className='w-1/2 mx-10'>
                     <img src={img9} className="max-w-sm rounded-lg shadow-2xl mt-10" alt='' />
-                    
+                    <h1 className="text-4xl font-bold mt-10">A large portion of my work involves travel. These dates can let you know when I'm going to be in your area.</h1>
                 </div>
                 <div className='w-1/2'>
                     <h1 className="text-4xl font-bold my-6">Capturing these stories for others gives me an incredible feeling of satisfaction.</h1>
