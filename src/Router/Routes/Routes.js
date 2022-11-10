@@ -5,6 +5,9 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import CheckOut from "../../Pages/CheckOut/CheckOut";
 import Reviews from "../../Pages/Reviews/Reviews";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
+import ServiceDataDetails from "../../Pages/Home/Services/ServiceDataDetails";
 
 const router = createBrowserRouter([
     {
@@ -25,14 +28,23 @@ const router = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <CheckOut></CheckOut>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://stdio-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/reviews',
-                element: <Reviews></Reviews>
+                element: <PrivateRoute><Reviews></Reviews></PrivateRoute>
+            },
+            {
+                path: '/servicedatadetails',
+                element: <PrivateRoute><ServiceDataDetails></ServiceDataDetails></PrivateRoute>
+            },
+            {
+                path: '/servicedetail',
+                element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
             }
-            
+
+
         ]
     }
 ]);

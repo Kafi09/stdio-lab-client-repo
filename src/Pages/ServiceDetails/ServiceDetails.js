@@ -1,10 +1,7 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import ServiceCard from './ServiceCard';
+import React, { useEffect, useState } from 'react';
+import ServiceCard from '../Home/Services/ServiceCard';
 
-const Services = () => {
+const ServiceDetails = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
@@ -12,6 +9,7 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
+    console.log(services);
 
     return (
         <div>
@@ -20,17 +18,17 @@ const Services = () => {
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    services.slice(0, 3).map(service => <ServiceCard
+                    services.map(service => <ServiceCard
                         key={service._id}
                         service={service}
                     ></ServiceCard>)
                 }
             </div>
             <div className='text-center my-5'>
-                <Link to="/servicedetail"><button className="btn btn-primary">See More Services</button></Link>
+                <button className="btn btn-primary">See More Services</button>
             </div>
         </div>
     );
 };
 
-export default Services;
+export default ServiceDetails;

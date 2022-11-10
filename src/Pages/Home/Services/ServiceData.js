@@ -1,20 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ServiceCard = ({ service }) => {
-    const { _id, img, price, title, description } = service;
+const ServiceData = ({ servicedata }) => {
+    const { _id, img, price, title, description } = servicedata;
+    
     return (
         <div className="card card-compact w-80 mx-auto my-5 bg-base-100 shadow-xl bg-teal-600">
             <figure><img src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
-                {
-                    description.length > 100 ?
-                        <p>{description.slice(0, 100) + '...'} <Link to='/servicedatadetails'>Read More</Link> </p>
-                        :
-                        <p>{description}</p>
-                }
-                {/* <p>{description}</p> */}
+                <p>{description}</p>
                 <p className='text-2xl font-semibold'>Price: ${price}</p>
                 <div className="card-actions justify-end mt-4">
                     <Link to={`/checkout/${_id}`}>
@@ -26,4 +21,4 @@ const ServiceCard = ({ service }) => {
     );
 };
 
-export default ServiceCard;
+export default ServiceData;

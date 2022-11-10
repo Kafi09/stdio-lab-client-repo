@@ -1,11 +1,15 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 
 const Login = () => {
 
     const { login } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -17,9 +21,27 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .then(error => console.log(error));
     }
+
+    // google login part
+    const { providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignIn = () => {
+        console.log('buttonclicked')
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.error(error))
+    }
+
 
     return (
         <div className="hero w-full ">
@@ -48,7 +70,12 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='text-center'>If you don't have an account <Link className='font-bold pl-2 text-amber-400' to="/register">Register Now</Link> </p>
+
+                    <div className='text-center mt-4'><button onClick={handleGoogleSignIn} className="btn btn-circle">
+                        <h1>G</h1>
+                    </button></div>
                 </div>
+                
             </div>
         </div>
     );
